@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+
+import company.abstracts.Employee;
 import company.models.Manager;
 import company.models.Worker;
 
@@ -10,6 +13,18 @@ public static void main(String[] args) {
 
         Manager manager = new Manager("Janusz", 10000.0, 3, "12.12.1945", "Menago");
 
+        ArrayList<Employee> employees = new ArrayList<>();
+        employees.add(worker1);
+        employees.add(worker2);
+        employees.add(worker3);
+        employees.add(manager);
+
+        for (Employee employee : employees) {
+            employee.work();
+            System.out.println("- " + employee.getName() + " (ID: " + employee.hashCode() +
+                               ", Position: " + employee.getPosition() + ", Hire date: " +
+                               employee.getHireDate() + ", Salary: " + employee.getSalary() + ")");
+
         System.out.println(worker1.getName() + " has code: " + worker1.hashCode());
         System.out.println(worker2.getName() + " has code: " + worker2.hashCode());
         System.out.println(worker3.getName() + " has code: " + worker3.hashCode());
@@ -21,4 +36,5 @@ public static void main(String[] args) {
         System.out.println(worker3.getName() + " equals manager: " + worker3.equals(manager));
  
         }
+    }
 }
